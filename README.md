@@ -1,8 +1,12 @@
 # Korbit AI Mentor
 
-Korbit mentor CLI will allow you to analyze any local files of your computer. You must have an account on www.korbit.ai to use it.
+To use Korbit to analyze your local files, you can make use of our CLI tool. This tool is simple to install and allows you to pass Korbit local files as the targets for its scans to identify issues the same ways it does for your PRs.
 
-## How to
+Pick the install method to the right that best matches your local machine, click on a button to copy the command to your clipboard and run it using your terminal to get started.
+
+**Note:** you need an account on https://mentor.korbit.ai to use the CLI tool (you will need an authentication key associated to your account).
+
+## How to Install
 
 ### PIP
 
@@ -42,50 +46,52 @@ wget https://mentor-resources.korbit.ai/cli/korbit-win.exe -O korbit.exe
 
 ## Usage
 
-You can first use the following command to get an overview of what you can do with the korbit tool.
+To get an overview of what you can do with the korbit tool you can use the help command as follows:
 
 ```
 korbit --help
 ```
 
-There are 2 steps in order to be able to scan your local files. First you will need to authenticate with your **Korbit** account. Second, you will need be able to specify the file or folder you want **Korbit AI mentor** to analyze for you.
+There are 2 steps in order to be able to scan your local files:
+1. you will need to authenticate with your **Korbit** account. 
+2. you will need be able to specify the file or folder you want **Korbit AI mentor** to analyze for you.
 
 ### Login
 
-In order to use the CLI you will need to login using credentials generated on your https://mentor.korbit.ai account.
+In order to use the CLI you will need to authenticate your CLI by logging in using credentials generated on your https://mentor.korbit.ai account.
 
 #### Generate keys
 
-Go to your [profile page](https://mentor.korbit.ai/profile), you will see a **Secrets** section. Click **Create** button.
+To generate your ID/Key pair, either create an account or login and visit your [profile page](https://mentor.korbit.ai/profile).
+
+On your profile page you will see a **Secrets** section. Click the **Create** button and copy the ID and Key pairs.
 
 #### Command
 
-You need to use the command, this will propose you to input the secret id/key pair:
+To authenticate your CLI instance you with your ID/Key pair, you need to use the login command, this will prompt you to input the secret id/key pair:
 
 ```sh
 korbit login
 ```
-
+You will see the following two prompts after activating this command:
 > Please enter your secret ID:
 > Please enter your secret key:
 
-Or you can directly specify the values as arguments
+Alternatively, can directly specify the id/key pair values as arguments
 
 ```sh
 korbit login --secret_id=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx --secret_key=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 korbit login xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 ```
 
-This command will ask you to fill your secret_id and secret_key. We will see in the next section how to generate those.
-
-If you want to learn more about the login command please user:
+If you want to learn more about the login command you can specify login with the help command:
 
 ```sh
 korbit login --help
 ```
 
-You can also use environment variables to be logged in and run the scan command.
-Doing the following will replace the need of running the `korbit login` command.
+You can also use environment variables to remain logged in as you run scans with korbit.
+Use the following commands to avoid needing to run the `korbit login` command in every session.
 
 ```sh
 export KORBIT_SECRET_ID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
@@ -94,7 +100,7 @@ export KORBIT_SECRET_KEY=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 ### Scan
 
-Now that you are all setup, you can start running your first scan:
+Now that you are authenticated, you can start running your first scan. To do so you need to use the Korbit scan command and indicate the path of the folder/file your are looking to have korbit scan:
 
 ```sh
 korbit scan /path/to/folder ## Absolute path
@@ -102,7 +108,7 @@ korbit scan ../to/folder    ## Relative path
 korbit scan .               ## Curent folder anlaysis
 ```
 
-You can also see what are the available options with the scan command this way:
+You can also review available options for Korbt scan pathing with the scan and help commands:
 
 ```sh
 korbit scan --help
