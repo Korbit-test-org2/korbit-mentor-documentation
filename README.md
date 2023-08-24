@@ -100,7 +100,7 @@ export KORBIT_SECRET_KEY=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 ### Scan
 
-Now that you are authenticated, you can start running your first scan. To do so you need to use the Korbit scan command and indicate the path of the folder/file your are looking to have korbit scan:
+Now that you are authenticated, you can start running your first scan. To do so you need to use the `korbit scan` command and indicate the `path` of the folder/file your are looking to have korbit analyze:
 
 ```sh
 korbit scan /path/to/folder ## Absolute path
