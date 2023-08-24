@@ -20,7 +20,7 @@ pip install korbit-mentor
 
 #### Linux - MacOS
 
-1. Automatically installation
+1. Automatic installation
 
 ```sh
 curl https://mentor-resources.korbit.ai/cli/installer.sh | bash
