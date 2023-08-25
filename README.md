@@ -23,7 +23,7 @@ pip install korbit-mentor
 1. Automatically installation
 
 ```sh
-curl https://mentor-resources.korbit.ai/cli/installer.sh | sudo bash
+sudo curl https://mentor-resources.korbit.ai/cli/install.sh | sudo bash
 ```
 
 1. Linux and Macos x86
@@ -115,6 +115,59 @@ You can also review available options for Korbt scan pathing with the scan and h
 ```sh
 korbit scan --help
 ```
+
+
+#### Output
+
+We introduce the ability to run a scan headless, meaning that there will be no output in the terminal. But in the following default path:
+
+```sh
+# In the working directory where the korbit scan command has been executed.
+cat .korbit/scan.log
+```
+
+If Korbit AI mentor find issues the command will exit with a specific code number (see `--headless` option documentation).
+
+```sh
+korbit scan --help
+```
+
+This `korbit scan --headless` flag option will be used mainly in CI/CD pipelines, to automatically stop it.
+Along with the --headless command you can specify certain thresholds for only 2 metrics at the moment:
+
+1. confidence (scale 1-10): represents how confident Korbit AI Mentor is that a particular issue is real. A higher confidence score indicates a greater level of certainty that the identified issue is valid and requires attention.
+1. priority (scale 1-10): represents the level of importance or urgency assigned by Korbit AI Mentor to a particular issue. A higher priority score indicates a greater sense of urgency and the need for immediate attention to address the identified issue.
+
+```sh
+korbit scan --headless
+```
+
+**Note**: You can use the `--thresholds-*` even if the scan isn't in headless mode, this will filter the issue found and display only the one that matters for you.
+
+#### Progress view
+
+After you start to run a `korbit scan` command and that our system accepted the request (might take some time regarding load on our server), you will see in your terminal the progress of the scan. Each files will be updated in real time with their status.
+
+```sh
+Analysis in progress (1/1)
+├── afile.js ⏳
+└── afile.py ✅
+Analyzing files (2)... ━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━  50% -:--:--
+```
+
+#### Result
+
+At the end when every file will be analyzed you will see in your terminal different tables containing the issues' descriptions and their placement in the given file. Along that will see the priority and confidence about that issue.
+
+```sh
+                                         Category: Critical Errors
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━━━━┓
+┃ Error Description                                  ┃ File Path                  ┃ Confidence ┃ Priority ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━╇━━━━━━━━━━┩
+│ There is an error on the line X, because...        │ folder/afile.js            │ 10         │ 9        │
+└────────────────────────────────────────────────────┴────────────────────────────┴────────────┴──────────┘
+```
+
 
 ## Contact
 
