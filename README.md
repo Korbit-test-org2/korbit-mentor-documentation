@@ -20,28 +20,30 @@ pip install korbit-mentor
 
 #### Linux - MacOS
 
-1. Automatic installation
+1. Automatically installation
 
 ```sh
-curl https://mentor-resources.korbit.ai/cli/installer.sh | bash
+curl https://mentor-resources.korbit.ai/cli/installer.sh | sudo bash
 ```
 
 1. Linux and Macos x86
 
 ```sh
-wget https://mentor-resources.korbit.ai/cli/korbit-x86_64 -O /usr/bin/local/korbit
+sudo wget https://mentor-resources.korbit.ai/cli/latest/korbit-x86_64 -O /usr/local/bin/korbit
+sudo chmod +x /usr/local/bin/korbit
 ```
 
 1. MacOS arm64
 
 ```sh
-wget https://mentor-resources.korbit.ai/cli/korbit-aarch64 -O /usr/bin/local/korbit
+sudo wget https://mentor-resources.korbit.ai/cli/latest/korbit-aarch64 -O /usr/local/bin/korbit
+sudo chmod +x /usr/local/bin/korbit
 ```
 
 #### Windows
 
 ```sh
-wget https://mentor-resources.korbit.ai/cli/korbit-win.exe -O korbit.exe
+wget https://mentor-resources.korbit.ai/cli/latest/korbit-win.exe -O korbit.exe
 ```
 
 ## Usage
